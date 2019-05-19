@@ -9010,12 +9010,12 @@ public class SimplePageBean {
         	glossary.setDescription(desc);
         	glossary.setCategory(category);
             //Return string for NavigationCase
-            status = simplePageToolDao.insertDB(glossary);
-    		if(status){
+            // status = simplePageToolDao.insertDB(glossary);
+    		// if(status){
     			return "success";		
-    		}
-        }else{
-            return "failure";
+    		// }
+        // }else{
+            // return "failure";
         }
         return "failure";
     }

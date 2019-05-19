@@ -201,6 +201,12 @@ simplePageBean.addGlossary
 </property>
 </bean>
    
+  <bean id="resultsScope" parent="beanScopeParent">
+    <property name="copyPreservingBeans" value="simplePageBean" />
+    <property name="exclusive" value="true" />
+  </bean>
+
+
    	<bean parent="requestAddressibleParent">
 		<property name="value" value="gradingBean" />
 	</bean>

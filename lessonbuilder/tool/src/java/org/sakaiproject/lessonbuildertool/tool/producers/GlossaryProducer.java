@@ -78,11 +78,21 @@ public class GlossaryProducer implements ViewComponentProducer, NavigationCaseRe
         	UIOutput.make(tofill,"desc_label","Description");
         	UIOutput.make(tofill,"category_label","Category");
 
+        	String term = null;
+
         	UIForm form = UIForm.make(tofill, "add-glossary");
         	UIInput.make(form, "term_glossary:", "#{simplePageBean.term}");
+        	term = simplePageBean.getTerm();
         	UIInput.make(form, "desc_glossary:", "#{simplePageBean.desc}");
         	UIInput.make(form, "category_glossary", "#{simplePageBean.category}");
         	UICommand.make(form, "submit","Add", "#{simplePageBean.processActionSubmit}");
+
+        	if(term != null){
+        		UIOutput.make(tofill,"term", term);
+        	}
+        	else{
+        		UIOutput.make(tofill,"term", "NONE");	
+        	}
         	
         	
 	}
@@ -106,7 +116,7 @@ public class GlossaryProducer implements ViewComponentProducer, NavigationCaseRe
 	public List reportNavigationCases() {
 		List<NavigationCase> togo = new ArrayList<NavigationCase>();
 		togo.add(new NavigationCase(null, new SimpleViewParameters(ShowPageProducer.VIEW_ID)));
-		togo.add(new NavigationCase("success", new SimpleViewParameters(ShowPageProducer.VIEW_ID)));
+		togo.add(new NavigationCase("success", new SimpleViewParameters(GlossaryProducer.VIEW_ID)));
 		togo.add(new NavigationCase("cancel", new SimpleViewParameters(ShowPageProducer.VIEW_ID)));
 		togo.add(new NavigationCase("failure", new SimpleViewParameters(ShowPageProducer.VIEW_ID)));
 
